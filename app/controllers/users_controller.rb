@@ -22,7 +22,7 @@ class UsersController < ApplicationController
   	if @user.update(user_params)
   		redirect_to user_path(@user.id), notice: "successfully updated user!"
   	else
-  		redirect_to user_session_path
+  		render 'edit'
   	end
   end
 

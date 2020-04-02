@@ -1,8 +1,27 @@
+<%= render "layouts/error_messages" %>
+
 <div class="row">
 	<div class="col-xs-3">
 
 		<h2>User info</h2>
-			<%= render 'users/profile', user: @user %>
+			<table class="table">
+				<tr><%= attachment_image_tag current_user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg" %></tr>
+
+				<tr>
+					<th>name</th>
+					<th><%= current_user.name %></th>
+			
+				</tr>
+				<tr>
+					<th>introduction</th>
+					<th><%= current_user.introduction %></th>
+				</tr>
+			</table>
+
+<div class="row">
+	<%= link_to '',edit_user_path(current_user), class: "col-xs-12 btn btn-default glyphicon glyphicon-wrench edit_user_#{current_user.id}" %>
+</div>
+
 			<!--メモ　右側の指定に注意。そこを間違えるとエラーが発生して表示されない -->
 
 		<h2>New book</h2>
