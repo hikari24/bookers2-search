@@ -6,7 +6,8 @@ Rails.application.routes.draw do
 
   resources :users,only: [:show,:index,:edit,:update]
   resources :books
-  
-  
+
   get 'home/about'
+  get '/search' => 'search#search'
+
 end
