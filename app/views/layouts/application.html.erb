@@ -38,23 +38,29 @@
     </header>
     <!--ヘッダーの記述-->
     <div class="container">
+      <div class="row">
+        <div class="col-xs-8 col-xs-offset-4">
 
-      <% if user_signed_in? %>
-        <div class="search-form">
-          <%= form_tag search_path, method: :get do %>
-            <%= text_field_tag 'search[content]' %>
-              <%= select_tag 'search[model]', options_for_select({"User" => "user", "Book" => "book"}) %>
-              <%= select_tag 'search[how]', options_for_select({"完全一致" => "match", "前方一致" => "forward", "後方一致" => "backward", "部分一致" => "partial"}) %>
-              <%= submit_tag "検索" %>
+          <% if user_signed_in? %>
+            <div class="search-form">
+              <%= form_tag search_path, method: :get do %>
+                <%= text_field_tag 'search[content]' %>
+                <%= select_tag 'search[model]', options_for_select({"User" => "user", "Book" => "book"}) %>
+                <%= select_tag 'search[how]', options_for_select({"完全一致" => "match", "前方一致" => "forward", "後方一致" => "backward", "部分一致" => "partial"}) %>
+                <%= submit_tag "検索" %>
+              <% end %>
+            </div>
           <% end %>
         </div>
-      <% end %>
 
-      <p id="notice"><%= notice %></p> <!--デバイスでnotice設定されているので呼び出してるだけ-->
+        <div class="col-xs-12">
+
+          <p id="notice"><%= notice %></p> <!--デバイスでnotice設定されているので呼び出してるだけ-->
 
 
-      <%= yield %>
-
+          <%= yield %>
+        </div>
+      </div>
     </div>
   </body>
 </html>
